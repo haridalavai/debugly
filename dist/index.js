@@ -13,7 +13,6 @@ const marked_terminal_1 = __importDefault(require("marked-terminal"));
 const boxen_1 = __importDefault(require("boxen"));
 const ora_1 = __importDefault(require("ora"));
 const wrap_ansi_1 = __importDefault(require("wrap-ansi"));
-const inquirer_1 = __importDefault(require("inquirer"));
 const readline_1 = __importDefault(require("readline"));
 dotenv_1.default.config();
 let errorBuffer = '';
@@ -278,20 +277,19 @@ function startApp() {
     appProcess.stderr?.on('data', async (data) => {
         const errorMessage = data.toString();
         console.error(`\n🚨 Error detected:\n${errorMessage}`);
-        const { shouldDebug } = await inquirer_1.default.prompt([
-            {
-                type: 'confirm',
-                name: 'shouldDebug',
-                message: 'Would you like to debug this error?',
-                default: true,
-            },
-        ]);
-        if (shouldDebug) {
-            analyzeError(errorMessage);
-        }
-        else {
-            console.log('Skipping debugging...');
-        }
+        // const { shouldDebug } = await inquirer.prompt([
+        //     {
+        //         type: 'confirm',
+        //         name: 'shouldDebug',
+        //         message: 'Would you like to debug this error?',
+        //         default: true,
+        //     },
+        // ]);
+        // if (shouldDebug) {
+        analyzeError(errorMessage);
+        // } else {
+        //     console.log('Skipping debugging...');
+        // }
     });
     appProcess.stdout?.on('data', (data) => {
         printBoxedMessage(data.toString().trim(), '🔄 Debugly Output:');

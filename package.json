@@ -12,11 +12,13 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "axios": "^1.8.4",
     "boxen": "^8.0.1",
     "chalk": "^5.4.1",
     "cli-markdown": "^3.4.0",
     "commander": "^13.1.0",
     "dotenv": "^16.4.7",
+    "express": "^5.1.0",
     "inquirer": "^12.5.0",
     "marked": "^15.0.7",
     "marked-terminal": "^7.3.0",
@@ -28,6 +30,7 @@
     "wrap-ansi": "^9.0.0"
   },
   "devDependencies": {
+    "@types/express": "^5.0.1",
     "@types/markdown-it": "^14.1.2",
     "@types/marked-terminal": "^6.1.1",
     "@types/node": "^22.13.14",
